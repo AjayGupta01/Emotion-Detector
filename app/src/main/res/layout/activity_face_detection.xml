@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".facedetection.FaceDetectionActivity">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+   <com.project.emotiondetection.facedetection.FaceBoxOverlay
+       android:id="@+id/faceBoxOverlay"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center"
+        android:text=""
+        android:textSize="30sp"
+        android:visibility="gone"
+        android:textColor="#D50000"
+        android:id="@+id/facialExpression"/>
+
+</FrameLayout>
