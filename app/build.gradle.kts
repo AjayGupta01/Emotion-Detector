@@ -58,4 +58,8 @@ dependencies {
 
     //face recognition
     implementation("com.google.android.gms:play-services-mlkit-face-detection:17.1.0")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
 }

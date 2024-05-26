@@ -2,6 +2,7 @@ package com.project.emotiondetection.facedetection
 
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -22,8 +23,15 @@ import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetector
 import com.google.mlkit.vision.face.FaceDetectorOptions
 import com.project.emotiondetection.CameraXViewModel
+import com.project.emotiondetection.R
 import com.project.emotiondetection.databinding.ActivityFaceDetectionBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
+import kotlin.coroutines.coroutineContext
 
 class FaceDetectionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFaceDetectionBinding
@@ -31,6 +39,7 @@ class FaceDetectionActivity : AppCompatActivity() {
     private lateinit var cameraPreview: Preview
     private lateinit var cameraSelector: CameraSelector
     private lateinit var imageAnalysis: ImageAnalysis
+    private var isMusicActivityStarted = false
 
     private val cameraXViewModel = viewModels<CameraXViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +55,7 @@ class FaceDetectionActivity : AppCompatActivity() {
 
         cameraSelector = CameraSelector
             .Builder()
-            .requireLensFacing(CameraSelector.LENS_FACING_FRONT)
+            .requireLensFacing(CameraSelector.LENS_FACING_BACK)
             .build()
 
         cameraXViewModel.value.processCameraProvider.observe(this){
@@ -114,9 +123,10 @@ class FaceDetectionActivity : AppCompatActivity() {
                             val smileProb  = face.smilingProbability
                             smileProb?.let {value->
                                 binding.apply {
-                                    if (value>=.6f){
-                                        facialExpression.text = "Smiling "+"\uD83D\uDE0A"
+                                    if (value>=.6f && !isMusicActivityStarted){
+                                        facialExpression.text = "Happy "+"\uD83D\uDE0A"
                                         facialExpression.visibility = View.VISIBLE
+                                        startMusicActivity()
                                     }
                                     else facialExpression.visibility = View.INVISIBLE
                                 }
@@ -132,6 +142,11 @@ class FaceDetectionActivity : AppCompatActivity() {
                 }
         }
 
+    }
+    private fun startMusicActivity() {
+        isMusicActivityStarted = true
+        MusicActivity.startMusicActivity(this)
+        finish() // Optionally, finish this activity to remove it from the back stack
     }
 
     companion object {

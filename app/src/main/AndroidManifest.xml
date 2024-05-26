@@ -5,8 +5,10 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-    <uses-permission android:name="android.permission.CAMERA"/>
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
 
     <application
         android:allowBackup="true"
@@ -18,7 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmotionDetection"
         tools:targetApi="31">
-
+        <activity
+            android:name=".facedetection.MusicActivity"
+            android:exported="false" />
         <activity
             android:name=".facedetection.FaceDetectionActivity"
             android:exported="false" />
