@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.Login_SignUp.SignUpActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/CreateAccountTitle2"
+            style="@style/TextStyle_Title"
+            android:layout_marginTop="@dimen/_65sdp"
+            android:text="@string/signup_title"
+            app:layout_constraintEnd_toEndOf="@+id/SignUpEnrollmentContainer"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/SignUpEnrollmentContainer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/StepText2"
+            style="@style/TextStyle_Bold"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="@+id/SignUpEnrollmentContainer"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/SignUpEnrollmentContainer"
+            app:layout_constraintTop_toBottomOf="@+id/CreateAccountTitle2" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/SignUpEnrollmentContainer"
+            style="@style/TextInputLayoutStyle"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/StepText2"
+            app:startIconDrawable="@drawable/email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/SignUpEnrollmentEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enrollment"
+                android:fontFamily="@font/roboto"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/SignUpConfirmPasswordContainer"
+            style="@style/TextInputLayoutStyle"
+            android:layout_marginTop="@dimen/_7sdp"
+
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="@+id/SignUpPasswordContainer"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/SignUpPasswordContainer"
+            app:layout_constraintTop_toBottomOf="@+id/SignUpPasswordContainer"
+            app:startIconDrawable="@drawable/password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/SignUpConfirmPasswordEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/SignUpPasswordContainer"
+            style="@style/TextInputLayoutStyle"
+            android:layout_marginTop="@dimen/_7sdp"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="@+id/SignUpEnrollmentContainer"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/SignUpEnrollmentContainer"
+            app:layout_constraintTop_toBottomOf="@+id/SignUpEnrollmentContainer"
+            app:startIconDrawable="@drawable/password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/SignUpPasswordEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:fontFamily="@font/roboto"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/SignUpSubmitButton"
+            style="@style/buttonStyle"
+            android:layout_marginTop="@dimen/_48sdp"
+            android:background="@drawable/button_gradient"
+            android:text="@string/sign_up"
+            app:layout_constraintEnd_toEndOf="@+id/SignUpConfirmPasswordContainer"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="@+id/SignUpConfirmPasswordContainer"
+            app:layout_constraintTop_toBottomOf="@+id/SignUpConfirmPasswordContainer" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

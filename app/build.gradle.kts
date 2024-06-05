@@ -62,4 +62,12 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
+
+    implementation("com.intuit.sdp:sdp-android:1.1.0")
+    implementation("com.intuit.ssp:ssp-android:1.1.0")
+    implementation("com.github.f0ris.sweetalert:library:1.5.6")
+
+    //datastore
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+
 }

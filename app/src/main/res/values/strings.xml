@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">Emotion Detection</string>
     <string name="open_face_detection">Start Face Detection</string>
+    <string name="signup_title">Create Account</string>
+    <string name="sign_in_title">Sign In</string>
+    <string name="enrollment">enrollment</string>
+    <string name="enrollment_placeholder">eg. 2101257xxxx</string>
+    <string name="password">password</string>
+    <string name="login_button">LOGIN</string>
+    <string name="reset_password">Forgot password?</string>
+    <string name="no_account">No Account?</string>
+    <string name="create_one">Create one</string>
+    <string name="email">email</string>
+    <string name="contact_number">mobile number</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="step_1_of_2">Step 1 of 2</string>
+    <string name="step_2_of_2">Step 2 of 2</string>
+    <string name="agreement_line"><![CDATA[Agree with Terms & Conditions]]></string>
+    <string name="next">Next</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

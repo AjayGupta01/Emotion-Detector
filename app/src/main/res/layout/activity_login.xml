@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.Login_SignUp.LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_gradient"
+        tools:context=".login_signup.LoginActivity">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView"
+            android:layout_width="@dimen/_115sdp"
+            android:layout_height="@dimen/_105sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.078" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_420sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:background="@drawable/corner_radius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView">
+
+            <TextView
+                android:id="@+id/sign_in_title"
+                style="@style/TextStyle_Title"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="@string/sign_in_title"
+                app:layout_constraintEnd_toEndOf="@+id/enrollment_num_container"
+                app:layout_constraintStart_toStartOf="@+id/enrollment_num_container"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/enrollment_num_container"
+                android:layout_marginTop="@dimen/_30sdp"
+                style="@style/TextInputLayoutStyle"
+                app:counterMaxLength="11"
+                app:endIconMode="clear_text"
+                app:placeholderText="@string/enrollment_placeholder"
+                app:startIconDrawable="@drawable/person_icon"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sign_in_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enrollment_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enrollment"
+                    android:inputType="number"
+                    android:fontFamily="@font/roboto"
+                    android:maxLength="11"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_container"
+                android:layout_marginTop="@dimen/_7sdp"
+                style="@style/TextInputLayoutStyle"
+                app:startIconDrawable="@drawable/lock"
+                app:endIconMode="password_toggle"
+                app:layout_constraintEnd_toEndOf="@+id/enrollment_num_container"
+                app:layout_constraintStart_toStartOf="@+id/enrollment_num_container"
+                app:layout_constraintTop_toBottomOf="@+id/enrollment_num_container">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textVisiblePassword"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/login_button"
+                style="@style/buttonStyle"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/button_gradient"
+                android:text="@string/login_button"
+                app:layout_constraintEnd_toEndOf="@+id/password_container"
+                app:layout_constraintStart_toStartOf="@+id/password_container"
+                app:layout_constraintTop_toBottomOf="@+id/password_container" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/reset_password_text"
+                style="@style/TextStyle_Bold"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:text="@string/reset_password"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/login_button"
+                app:layout_constraintStart_toStartOf="@+id/login_button"
+                app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/password_container"
+                app:layout_constraintStart_toStartOf="@+id/password_container"
+                app:layout_constraintTop_toBottomOf="@+id/reset_password_text">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/no_account_text"
+                    style="@style/TextStyle_Regular"
+                    android:text="@string/no_account"
+                    android:visibility="gone"
+                    android:layout_marginEnd="@dimen/_6sdp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/create_one_text"
+                    android:visibility="gone"
+                    style="@style/TextStyle_Bold"
+                    android:text="@string/create_one" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

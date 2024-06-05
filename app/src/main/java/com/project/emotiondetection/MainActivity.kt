@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.project.emotiondetection.databinding.ActivityMainBinding
 import com.project.emotiondetection.facedetection.FaceDetectionActivity
+import com.project.emotiondetection.login.Database.InsertDatabase
 import com.project.learnmlkit.utils.hasPermission
 import com.project.learnmlkit.utils.onDeniedCameraPermissionRequest
 import com.project.learnmlkit.utils.openAppPermissionSettings
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+//        InsertDatabase.insertMainDatabase(this@MainActivity)
         binding.openFaceDetectionBtn.setOnClickListener {
             requestCameraPermissionAndStartScanner()
         }

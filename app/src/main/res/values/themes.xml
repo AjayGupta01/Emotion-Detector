@@ -6,4 +6,67 @@
     </style>
 
     <style name="Theme.EmotionDetection" parent="Base.Theme.EmotionDetection" />
+    <style name="TextStyle_Regular">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+
+
+    <style name="TextStyle_Bold">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+
+
+
+    <style name="TextStyle_Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/_25ssp</item>
+    </style>
+
+
+
+    <style name="TextInputLayoutStyle">
+        <item name="android:layout_width">@dimen/_235sdp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_10sdp</item>
+        <item name="boxStrokeWidth">@dimen/_2sdp</item>
+        <item name="counterEnabled">false</item>
+        <item name="helperTextTextColor">@color/red</item>
+    </style>
+
+    <style name="buttonStyleBold">
+        <item name="android:layout_width">@dimen/_140sdp</item>
+        <item name="android:layout_height">@dimen/_38sdp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/_17ssp</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="buttonStyle">
+        <item name="android:layout_width">@dimen/_140sdp</item>
+        <item name="android:layout_height">@dimen/_38sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_17ssp</item>
+        <item name="fontFamily">@font/holtwood_one_sc</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="Theme.NoActionBarTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+    </style>
 </resources>
