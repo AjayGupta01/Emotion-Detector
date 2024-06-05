@@ -7,11 +7,12 @@ import androidx.activity.OnBackPressedCallback
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.project.emotiondetection.MainActivity
 import com.project.emotiondetection.login.CollectionsOfAlertDialog.AlertDialogCollections
-import com.project.emotiondetection.login.Database.InsertDatabase
-import com.project.emotiondetection.login.Database.MainDatabase
 import com.project.emotiondetection.databinding.ActivityLoginBinding
-import com.project.emotiondetection.facedetection.FaceDetectionActivity
+import com.project.emotiondetection.login.Database.InsertDataPref
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class LoginActivity : AppCompatActivity() {
     private val binding: ActivityLoginBinding by lazy {
@@ -22,39 +23,36 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-       InsertDatabase.insertMainDatabase(this@LoginActivity)
-
         enrollmentFocusListener()
         passwordFocusListener()
 
         binding.apply {
 
-//            createOneText.setOnClickListener {
-//                val redirect_sign_up_activity =
-//                    Intent(this@LoginActivity, SignUpActivity::class.java)
-//                startActivity(redirect_sign_up_activity)
-//            }
+            createOneText.setOnClickListener {
+                val redirect_sign_up_activity =
+                    Intent(this@LoginActivity, SignUpActivity::class.java)
+                startActivity(redirect_sign_up_activity)
+            }
 
             loginButton.setOnClickListener{
-                val mainDb= MainDatabase(this@LoginActivity)
                 var enrollment=enrollmentEditText.text.toString()
                 var password=passwordEditText.text.toString()
-
-                if(mainDb.isUserExist(enrollment,password)){
-//                    AlertDialogCollections.successAlertDialog(this@LoginActivity,enrollment.toString())
-//                    enrollmentEditText.text?.clear()
-//                    passwordEditText.text?.clear()
-                    val redirectmainActivity = Intent(this@LoginActivity, MainActivity::class.java)
-                    startActivity(redirectmainActivity)
-                    finish()
+                CoroutineScope(Dispatchers.IO).launch {
+                    val wasAcknowledge = InsertDataPref.isUserExist(this@LoginActivity, enrollment, password)
+                    withContext(Dispatchers.Main) {
+                        if (wasAcknowledge) {
+                            val redirectMainActivity = Intent(this@LoginActivity, MainActivity::class.java)
+                            startActivity(redirectMainActivity)
+                            finishAffinity()
+                        } else {
+                            AlertDialogCollections.failAlertDialog(this@LoginActivity)
+                            enrollmentEditText.text?.clear()
+                            passwordEditText.text?.clear()
+                        }
+                    }
                 }
-                else{
-                    AlertDialogCollections.failAlertDialog(this@LoginActivity)
-                    enrollmentEditText.text?.clear()
-                    passwordEditText.text?.clear()
-                }
-
             }
+
         }
         onBackPressedDispatcher.addCallback(this@LoginActivity,
             object : OnBackPressedCallback(true) {

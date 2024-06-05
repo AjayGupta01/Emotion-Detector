@@ -3,9 +3,15 @@ package com.project.emotiondetection.login.Login_SignUp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.project.emotiondetection.databinding.ActivitySignUpBinding
+import com.project.emotiondetection.login.Database.InsertDataPref
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class SignUpActivity : AppCompatActivity() {
@@ -19,11 +25,28 @@ class SignUpActivity : AppCompatActivity() {
         enrollmentFocusListener()
         passwordFocusListener()
 
+
         binding.apply {
             SignUpSubmitButton.setOnClickListener {
-                val redirect_sign_up_login=Intent(this@SignUpActivity, LoginActivity::class.java)
-                startActivity(redirect_sign_up_login)
-                finishAffinity()
+
+                val enrolment = SignUpEnrollmentEdt.text.toString()
+                val password = SignUpPasswordEdt.text.toString()
+                val confirm_password = SignUpConfirmPasswordEdt.text.toString()
+
+                CoroutineScope(Dispatchers.IO).launch {
+                    val wasAcknowledge = InsertDataPref.insertData(this@SignUpActivity,enrolment,password,confirm_password)
+                    withContext(Dispatchers.Main) {
+                        if (wasAcknowledge) {
+                            val redirect_sign_up_login = Intent(this@SignUpActivity, LoginActivity::class.java)
+                            startActivity(redirect_sign_up_login)
+                            finishAffinity()
+                        } else {
+                            Toast.makeText(this@SignUpActivity, "Unable to create account", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+
+
             }
 
            onBackPressedDispatcher.addCallback(this@SignUpActivity,object:OnBackPressedCallback(true){
@@ -119,10 +142,9 @@ class SignUpActivity : AppCompatActivity() {
         binding.apply {
             var received_confirm_password=SignUpConfirmPasswordEdt.text.toString()
 
-            if(received_confirm_password==""){
+            return if(received_confirm_password==""){
                 return "Required*"
-            }
-            return null
+            }else null
         }
     }
 

@@ -121,12 +121,10 @@
                     android:id="@+id/no_account_text"
                     style="@style/TextStyle_Regular"
                     android:text="@string/no_account"
-                    android:visibility="gone"
                     android:layout_marginEnd="@dimen/_6sdp"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/create_one_text"
-                    android:visibility="gone"
                     style="@style/TextStyle_Bold"
                     android:text="@string/create_one" />
 
